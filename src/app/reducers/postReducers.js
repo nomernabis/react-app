@@ -4,7 +4,7 @@ const postReducer = (state = {isFetching: false, posts: []}, action) => {
     switch (action.type) {
         case ADD_POST:
             const posts = [...state.posts, {id: action.id, text: action.text, title: action.title}]
-            let newState = {...state, posts: post}
+            let newState = {...state, posts: posts}
             return newState
             break
         default:
