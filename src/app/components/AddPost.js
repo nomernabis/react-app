@@ -4,18 +4,20 @@ import { connect } from 'react-redux'
 
 
 const AddPost = ({ dispatch }) => {
-    let input
+    let titleInput, textInput
     return(
         <div>
             <form onSubmit = { e => {
                 e.preventDefault()
-                if(!input.value.trim()){
+                if(!titleInput.value.trim() || !textInput.value.trim()){
                     return
                 }
-                dispatch(addPost(input.value))
-                input.value = ''
+                dispatch(addPost(titleInput.value, textInput.value))
+                titleInput.value = ''
+                textInput.value = ''
             }}>
-                <input ref={ node => input = node } />
+                <input ref={ node => titleInput = node } /> <br />
+                <textarea ref={ node => textInput = node }></textarea> <br />
                 <button type="submit">
                     Add Post
                 </button>

@@ -17,8 +17,9 @@ class Posts extends React.Component{
     }
 }
 
-const mapStateToProps = state => ({
-    posts: state
-})
+const mapStateToProps = (state) => {
+    console.log('mapState', state)
+    return { posts: state.posts }
+}
 
 export default connect(mapStateToProps)(Posts)
